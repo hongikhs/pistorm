@@ -6,5 +6,5 @@ def rs():   return psm.BBS2.lightSensorNXT(reflectiveMode)
 def ls():   return psm.BAS2.lightSensorNXT(reflectiveMode)
 
 while not ts():
-    print(rs, ls)
+    print(rs(), ls())
     sleep(0.5)
