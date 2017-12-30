@@ -4,13 +4,11 @@ psm = PiStorms()
 def ts():   return psm.BBS1.isTouchedNXT()
 def rs():   return psm.BBS2.lightSensorNXT(True)
 def ls():   return psm.BAS2.lightSensorNXT(True)
-def cm(sp): psm.BBM1.setSpeed(sp)
-def rm(sp): psm.BBM2.setSpeed(sp)
-def lm(sp): psm.BAM2.setSpeed(sp)
-    
+cm = psm.BBM1
+rm = psm.BBM2
+lm = psm.BAM2    
 while not ts():
-    #print(rs(), ls())
-    rm(30)
-    lm(30)
-rm(0)
-lm(0)
+    rm.setSpeed(30)
+    lm.setSpeed(30)
+rm.setSpeed(0)
+lm.setSpeed(0)
