@@ -7,6 +7,8 @@ def ls():   return psm.BAS2.lightSensorNXT(True)
 cm = psm.BBM1
 rm = psm.BBM2
 lm = psm.BAM2    
+cm.runDegs(-300, 50, True, False)
+
 while not ts():
     rm.setSpeed(30)
     lm.setSpeed(30)
