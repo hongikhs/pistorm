@@ -2,17 +2,26 @@
 from PiStorms import PiStorms
 from time import sleep
 psm = PiStorms()
-def ts():   return psm.BBS1.isTouchedNXT()
-def rs():   return psm.BBS2.lightSensorNXT(True)
-def ls():   return psm.BAS2.lightSensorNXT(True)
-cm = psm.BBM1
-rm = psm.BBM2
+ts = psm.BBS1
+ls = psm.BAS2
+rs = psm.BBS2
+cm = psm.BAM1
 lm = psm.BAM2
+rm = psm.BBM2
+def tsv():      return ts.isTouchedNXT()
+def rsv(lt):    return rs.lightSensorNXT(lt)
+def lsv(lt):    return ls.lightSensorNXT(lt)
+def rms(sp):    rm.setSpeed(-sp)
+def lms(sp):    lm.setSpeed(-sp)
+def cmd(dg):
+    cm.runDegs(dg, 50, True, False)
+    cm.waitUntilNotBusy()
 
 ##### start #####
-cm.runDegs(-300, 50, True, False)
-while not ts():
-    rm.setSpeed(30)
-    lm.setSpeed(30)
+cmd(100)
+cmd(-100)
+while not tsv():
+    rms(30)
+    lms(30)
 rm.setSpeed(0)
 lm.setSpeed(0)
