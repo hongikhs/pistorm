@@ -18,8 +18,8 @@ def cmd(dg):
     cm.waitUntilNotBusy()
 
 ##### start #####
-cmd(100)
-cmd(-100)
+cmd(-200)
+cmd(200)
 while not tsv():
     rms(30)
     lms(30)
