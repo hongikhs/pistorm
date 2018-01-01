@@ -16,10 +16,12 @@ def motorDegree(m, degree, speed=50, brake=True, hold=False):
     m.waitUntilNotBusy()
 
 ##### start #####
-motorDegree(cm, -300)
-motorDegree(cm, 300)
-motor(lm)
-motor(rm)
-sleep(1)
-motor(lm, 0)
-motor(rm, 0)
+while True:
+    if touch(ts):
+        motor(lm, 0)
+        motor(rm, 0)
+        motorDegree(cm, -300, 100)
+        motorDegree(cm, 300, 100)
+    else:
+        motor(lm)
+        motor(rm)
