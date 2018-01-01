@@ -16,5 +16,5 @@ def motorDegree(m, degree, speed=50, brake=True, hold=False):
     m.waitUntilNotBusy()
 
 ##### start #####
-motorDegree(cm, -100)
-motorDegree(cm, 100)
+motorDegree(cm, -300)
+motorDegree(cm, 300)
