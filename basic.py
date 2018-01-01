@@ -18,3 +18,8 @@ def motorDegree(m, degree, speed=50, brake=True, hold=False):
 ##### start #####
 motorDegree(cm, -300)
 motorDegree(cm, 300)
+motor(lm)
+motor(rm)
+sleep(1)
+motor(lm, 0)
+motor(rm, 0)
