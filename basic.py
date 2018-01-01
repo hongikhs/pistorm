@@ -8,20 +8,13 @@ rs = psm.BBS2
 cm = psm.BAM1
 lm = psm.BAM2
 rm = psm.BBM2
-def tsv():      return ts.isTouchedNXT()
-def rsv(lt):    return rs.lightSensorNXT(lt)
-def lsv(lt):    return ls.lightSensorNXT(lt)
-def rms(sp):    rm.setSpeed(-sp)
-def lms(sp):    lm.setSpeed(-sp)
-def cmd(dg, sp):
-    cm.runDegs(dg, sp, True, False)
-    cm.waitUntilNotBusy()
+def touch(s):               return s.isTouchedNXT()
+def light(s, reflected=1):  return s.lightSensorNXT(reflected)
+def motor(m, speed=50):     m.setSpeed(-speed)
+def motorDegree(m, degree, speed=50, brake=True, hold=False):
+    m.runDegs(degree, -speed, brake, hold)
+    m.waitUntilNotBusy()
 
 ##### start #####
-cmd(-200, 100)
-cmd(200, 100)
-while not tsv():
-    rms(30)
-    lms(30)
-rm.setSpeed(0)
-lm.setSpeed(0)
+motorDegree(cm, -100)
+motorDegree(cm, 100)
