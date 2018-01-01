@@ -13,13 +13,13 @@ def rsv(lt):    return rs.lightSensorNXT(lt)
 def lsv(lt):    return ls.lightSensorNXT(lt)
 def rms(sp):    rm.setSpeed(-sp)
 def lms(sp):    lm.setSpeed(-sp)
-def cmd(dg):
-    cm.runDegs(dg, 50, True, False)
+def cmd(dg, sp):
+    cm.runDegs(dg, sp, True, False)
     cm.waitUntilNotBusy()
 
 ##### start #####
-cmd(-200)
-cmd(200)
+cmd(-200, 100)
+cmd(200, 100)
 while not tsv():
     rms(30)
     lms(30)
