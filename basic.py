@@ -20,8 +20,9 @@ while True:
     if touch(ts):
         motor(lm, 0)
         motor(rm, 0)
-        motorDegree(cm, -300, 100, True, True)
-        motorDegree(cm, 300, 100, True, True)
+        motorDegree(cm, -300, 100)
+        motorDegree(cm, 300, 100)
+        print(cm.pos())
     else:
         motor(lm)
         motor(rm)
