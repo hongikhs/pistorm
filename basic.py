@@ -16,6 +16,7 @@ def motorDegree(m, degree, speed=50, brake=True, hold=False):
     m.waitUntilNotBusy()
 
 ##### start #####
+cm.resetPos()
 while True:
     if touch(ts):
         motor(lm, 0)
