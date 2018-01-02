@@ -24,6 +24,6 @@ while True:
         #motorDegree(cm, 300, 100)
         while cm.pos()>0: motor(cm)
         print(cm.pos())
-    else:
+    #else:
         #motor(lm)
         #motor(rm)
