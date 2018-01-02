@@ -11,15 +11,13 @@ rm = psm.BBM2
 def touch(s):               return s.isTouchedNXT()
 def light(s, reflected=1):  return s.lightSensorNXT(reflected)
 def motor(m, speed=50):     m.setSpeed(-speed)
-def movePos(m, degree, speed=50, brake=True, hold=False):
+def motorMoveDegs(m, degree, speed=50, brake=True, hold=False):
     m.runDegs(degree, -speed, brake, hold)
     m.waitUntilNotBusy()
-def setPos(m, degree):
-    sp = degree - m.pos()
-    while sp>5 or sp<-5:
-        m.setSpeed(sp)
-        sp = degree - m.pos()
-    m.setSpeed(0)
+def motorSetDegs(m, degree, speed=50, brake=True, hold=False):
+    sd = m.pos()
+    m.runDegs(degree - m.pos(), speed, brake, hold)
+    m.waitUntilNotBusy()
     
 ##### start #####
 #cm.resetPos()
