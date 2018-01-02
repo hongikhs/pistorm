@@ -15,8 +15,10 @@ def movePos(m, degree, speed=50, brake=True, hold=False):
     m.runDegs(degree, -speed, brake, hold)
     m.waitUntilNotBusy()
 def setPos(m, degree):
-    while -5<m.pos()-degree<5:
-        m.setSpeed(degree-m.pos())
+    sp = degree - m.pos()
+    while sp>5 or sp<-5:
+        m.setSpeed(sp)
+        sp = degree - m.pos()
     m.setSpeed(0)
     
 ##### start #####
@@ -28,7 +30,9 @@ while True:
         #motorDegree(cm, -300, 100)
         #motorDegree(cm, 300, 100)
         setPos(cm, -300)
+        print(cm.pos())
         setPos(cm, 0)
+        print(cm.pos())
     #else:
         #motor(lm)
         #motor(rm)
