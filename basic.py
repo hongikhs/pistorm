@@ -22,7 +22,7 @@ while True:
         motor(rm, 0)
         motorDegree(cm, -300, 100)
         #motorDegree(cm, 300, 100)
-        while cm.pos()>0: motor(cm)
+        while cm.pos()<0: motor(cm)
         print(cm.pos())
     #else:
         #motor(lm)
